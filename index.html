@@ -30,7 +30,12 @@
         var eventName = eventSelect.MPEventSelect('value'),
             propName  = propSelect.MPPropertySelect('value'),
             dateRange = dateSelect.MPDatepicker('value');
-            alert(dateRange.from);
+        
+        var params = {
+          from: dateRange.from,
+          to: dateRange.to,
+          type: 'average'
+        };
 
         if (eventName) {
           MP.api.segment(eventName, propName, dateRange).done(function(results) {
